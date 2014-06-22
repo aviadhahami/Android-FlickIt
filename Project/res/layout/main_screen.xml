@@ -13,7 +13,7 @@
             android:id="@+id/loggerTxt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Some text here" />
+            android:text="" />
 
         <TextView
             android:id="@+id/chatText"
@@ -22,12 +22,6 @@
             android:text="input goes here"
             android:textSize="20sp"
             android:textStyle="bold" />
-        <Button 
-            android:id="@+id/recreate"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-             android:text="Recreate"
-            android:onClick="killAll" />
         <Button 
             android:id="@+id/killLink"
             android:layout_width="match_parent"

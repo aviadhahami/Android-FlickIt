@@ -88,10 +88,6 @@ public class MainScreen extends Activity {
 		t.setText(t.getText() + "\n" + input);
 	}
 
-	public void killAll(View view) {
-		recreate();
-	}
-
 	public void killLink(View view) {
 		if (mManager == null) {
 			onScreenLogger("can not kill, null manager");
@@ -122,5 +118,6 @@ public class MainScreen extends Activity {
 				}
 			}
 		});
+		recreate();
 	}
 }
