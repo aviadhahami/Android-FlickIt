@@ -19,6 +19,14 @@ public class myServerSocket {
 			running = true;
 			TextView t = (TextView) mActivity.findViewById(R.id.chatText);
 			t.setText("Yoyo im server!");
+			
+			
+			//Socket starting here
+			try{
+				
+			}catch(Exception e){
+				mActivity.onScreenLogger("Caught socket xception: " + e);
+			}
 		}
 
 	}
