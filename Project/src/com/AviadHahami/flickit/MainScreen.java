@@ -4,10 +4,14 @@ import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.IntentFilter;
+import android.net.wifi.p2p.WifiP2pGroup;
 import android.net.wifi.p2p.WifiP2pManager;
+import android.net.wifi.p2p.WifiP2pManager.ActionListener;
 import android.net.wifi.p2p.WifiP2pManager.Channel;
+import android.net.wifi.p2p.WifiP2pManager.GroupInfoListener;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 import android.widget.TextView;
 
 public class MainScreen extends Activity {
@@ -76,6 +80,47 @@ public class MainScreen extends Activity {
 	protected void onPause() {
 		super.onPause();
 		unregisterReceiver(mReceiver);
+
 	}
 
+	public void onScreenLogger(String input) {
+		TextView t = (TextView) findViewById(R.id.loggerTxt);
+		t.setText(t.getText() + "\n" + input);
+	}
+
+	public void killAll(View view) {
+		recreate();
+	}
+
+	public void killLink(View view) {
+		if (mManager == null) {
+			onScreenLogger("can not kill, null manager");
+			return;
+		}
+		if (mChannel == null) {
+			onScreenLogger("can not kill, null channel");
+			return;
+		}
+		mManager.requestGroupInfo(mChannel, new GroupInfoListener() {
+
+			@Override
+			public void onGroupInfoAvailable(WifiP2pGroup group) {
+				if (group != null && mManager != null && mChannel != null
+						&& group.isGroupOwner()) {
+					mManager.removeGroup(mChannel, new ActionListener() {
+
+						@Override
+						public void onSuccess() {
+							onScreenLogger("killed link");
+						}
+
+						@Override
+						public void onFailure(int reason) {
+							onScreenLogger("couldn't kill link");
+						}
+					});
+				}
+			}
+		});
+	}
 }

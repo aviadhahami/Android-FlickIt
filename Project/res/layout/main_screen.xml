@@ -1,14 +1,39 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:context=".MainScreen" >
 
-<TextView 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/loggerTxt"
-    android:text="Some text here"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/loggerTxt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Some text here" />
+
+        <TextView
+            android:id="@+id/chatText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="input goes here"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <Button 
+            android:id="@+id/recreate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+             android:text="Recreate"
+            android:onClick="killAll" />
+        <Button 
+            android:id="@+id/killLink"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+             android:text="Kill Link"
+            android:onClick="killLink" />"
+    </LinearLayout>
+
+</ScrollView>
