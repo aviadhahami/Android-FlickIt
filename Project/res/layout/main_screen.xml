@@ -5,11 +5,10 @@
     android:orientation="vertical"
     tools:context=".MainScreen" >
 
-     <Button android:id="@+id/btnStartService"
-   android:layout_width="fill_parent"
-   android:layout_height="wrap_content"
-   android:text="@string/sendButton"
-   android:onClick="broadcastIntent"/>
-
+<TextView 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/loggerTxt"
+    android:text="Some text here"/>
 
 </LinearLayout>
