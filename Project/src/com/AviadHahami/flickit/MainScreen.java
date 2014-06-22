@@ -10,6 +10,7 @@ import android.net.wifi.p2p.WifiP2pManager.ActionListener;
 import android.net.wifi.p2p.WifiP2pManager.Channel;
 import android.net.wifi.p2p.WifiP2pManager.GroupInfoListener;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
@@ -25,7 +26,7 @@ public class MainScreen extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_screen);
-
+		
 		TextView text = (TextView) findViewById(R.id.loggerTxt);
 		text.setText(android.os.Build.DEVICE);
 		mManager = (WifiP2pManager) getSystemService(Context.WIFI_P2P_SERVICE);
